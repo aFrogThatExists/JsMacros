@@ -48,14 +48,3 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build -x test --stacktrace
-
-      - name: Bundle mods, documentation and source code
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ steps.fname.outputs.result }}
-          path: |
-            ./dist/**/*
-            !./dist/*-sources.jar
-            !./dist/*-dev.jar
-            !./dist/*-dev-shadow.jar
-            !./dist/*-dev-shadow-js.jar
